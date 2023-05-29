@@ -5,6 +5,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './index.css';
 import Form from './components/Form';
 import HomeContainer from './pages/HomePage';
+import TodoHomePage from './pages/TodoHomePage';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: '/form',
     element: <Form />,
+  },
+  {
+    path: '/todo-app',
+    element: <TodoHomePage />,
   },
 ]);
 
