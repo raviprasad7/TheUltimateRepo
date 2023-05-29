@@ -4,7 +4,7 @@ import {
   EmailValidator,
   FormValidator,
   NameValidator,
-} from '../utils/validator.utils';
+} from '../../utils/validator.utils';
 
 const Form: React.FC = (): JSX.Element => {
   const [name, setName] = useState('');

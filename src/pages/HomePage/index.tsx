@@ -1,4 +1,4 @@
-import Form from "./Form"
+import Form from '../../components/Form';
 
 const HomeContainer: React.FC = (): JSX.Element => {
   return <Form />;
