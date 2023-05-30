@@ -2,9 +2,12 @@ import React, { useEffect, useState } from 'react';
 import TodoService from '../../services/TodoService';
 import { Space, Spin } from 'antd';
 import TodoList from './TodoList';
+import useFetch from '../../hooks/useFetch';
+import { FETCH_TODOS_URL } from '../../constants/TodoApp/constant';
 
 const TodoApp: React.FC = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const { data, error, isLoading } = useFetch(FETCH_TODOS_URL, null);
+
   const [todos, setTodos] = useState<Array<Todo>>([]);
 
   const onToggle = (todoId: number): void => {
@@ -16,11 +19,10 @@ const TodoApp: React.FC = () => {
   };
 
   useEffect(() => {
-    TodoService.fetchTodos().then((todos: Array<Todo>) => {
-      setTodos(todos);
-      setIsLoading(false);
-    });
-  }, []);
+    if (data) {
+      setTodos(data);
+    }
+  }, [data]);
 
   if (isLoading) {
     return (

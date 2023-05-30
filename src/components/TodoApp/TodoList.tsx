@@ -12,7 +12,13 @@ const TodoList: React.FC<IProps> = ({ todos, onToggle }) => {
       bordered
       dataSource={todos}
       renderItem={(todo) => (
-        <List.Item key={todo.id}>
+        <List.Item
+          key={todo.id}
+          style={{
+            cursor: 'pointer',
+          }}
+          onClick={() => onToggle(todo.id)}
+        >
           {
             <Space size={'middle'}>
               <Checkbox
