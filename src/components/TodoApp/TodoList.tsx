@@ -1,23 +1,28 @@
-import { List, Typography } from 'antd';
+import { Checkbox, List, Space, Typography } from 'antd';
 import React from 'react';
 
 interface IProps {
-  todos: Array<any>;
+  todos: Array<Todo>;
   onToggle: Function;
 }
 
 const TodoList: React.FC<IProps> = ({ todos, onToggle }) => {
-  console.log('todos: ', todos);
   return (
     <List
       bordered
       dataSource={todos}
       renderItem={(todo) => (
-        <List.Item key={todo.id} onClick={() => onToggle(todo.id)}>
+        <List.Item key={todo.id}>
           {
-            <Typography.Text delete={todo.completed}>
-              {todo.title}
-            </Typography.Text>
+            <Space size={'middle'}>
+              <Checkbox
+                checked={todo.completed}
+                onChange={() => onToggle(todo.id)}
+              />
+              <Typography.Text delete={todo.completed}>
+                {todo.title}
+              </Typography.Text>
+            </Space>
           }
         </List.Item>
       )}
