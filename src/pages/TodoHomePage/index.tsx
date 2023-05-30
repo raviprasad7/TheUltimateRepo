@@ -1,5 +1,8 @@
+import TodoApp from '../../components/TodoApp';
+
 const TodoHomePage: React.FC = (): JSX.Element => {
-  return <p>Todo Home</p>;
+  console.log('TodoHomePage invoked');
+  return <TodoApp />;
 };
 
 export default TodoHomePage;
